@@ -38,28 +38,18 @@ for _ in 0 ..< n {
     resultMap.append(row)
 }
 
-map[x][y] = true
-
-resultMap[x][y] = 1
-
-
-
-
-for count in 2 ... n * m {
-    let nextX = x + dxs[dir]
-    let nextY = y + dys[dir]
-    
-    if isValidRange(nextX, nextY) {
-        x = nextX
-        y = nextY
-    } else {
-        dir = ((dir - 1) + 4) % 4
-        x += dxs[dir]
-        y += dys[dir]
-    }
-
+for count in 1 ... n * m {
     resultMap[x][y] = count
     map[x][y] = true
+
+    if isValidRange(x + dxs[dir], y + dys[dir]) {
+        
+    } else {
+        dir = ((dir - 1) + 4) % 4
+    }
+
+    x += dxs[dir]
+    y += dys[dir]
 }
 
 for result in resultMap {
