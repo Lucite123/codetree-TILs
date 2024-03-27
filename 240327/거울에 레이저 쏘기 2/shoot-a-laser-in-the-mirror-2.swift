@@ -89,7 +89,7 @@ func getFirstPosition(_ k: Int) -> Position {
         return Position(x: n - 1, y: (((3 * n) + 1) - k) - 1)
     } else if k > n && k <= 2 * n {
         // print("ho")
-        return Position(x: (k - ((4 * n) / 3) - 1) , y: n - 1)
+        return Position(x: ((k - n) - 1) , y: n - 1)
     } else {
         // print("ne")
         return Position(x: 0, y: k - 1)
@@ -100,8 +100,8 @@ var count = 1
 
 let firstDirectionMapper: [Direction: Int] = [
     .down: 3,
-    .right: 0,
-    .left: 2,
+    .right: 2,
+    .left: 0,
     .up: 1
 ]
 
@@ -141,7 +141,7 @@ func start(_ k: Int) {
     count += 1
     // print(firstPosition, position)
 
-    while true {
+    while isValidRange(position) {
         let mirror = map[position.x][position.y]
         // print(direction)
         if (dir + getNextDirection(mirror, direction)) < 0 {
@@ -155,6 +155,7 @@ func start(_ k: Int) {
         let nextPosition = Position(x: position.x + dxs[dir], y: position.y + dys[dir])
         // print(nextPosition)
         // print(dir)
+
         if isValidRange(nextPosition) == false {
             return
         }
