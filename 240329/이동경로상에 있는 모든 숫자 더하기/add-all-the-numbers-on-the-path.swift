@@ -1,6 +1,6 @@
 import Foundation
 
-let input = readLine()!.components(separatedBy: " ").map { Int(String($0))! }
+let input = readLine()!.trimmingCharacters(in: .whitespaces).components(separatedBy: " ").map { Int(String($0))! }
 let n = input[0]
 let t = input[1]
 
@@ -9,7 +9,7 @@ let commands = readLine()!.map { String($0) }
 var table = [[Int]]()
 
 for _ in 0 ..< n {
-    let row = readLine()!.components(separatedBy: " ").map { Int(String($0))! }
+    let row = readLine()!.trimmingCharacters(in: .whitespaces).components(separatedBy: " ").map { Int(String($0))! }
     table.append(row)
 }
 
