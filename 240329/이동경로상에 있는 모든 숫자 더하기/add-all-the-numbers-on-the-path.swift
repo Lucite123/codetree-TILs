@@ -36,14 +36,12 @@ func isValidRange(_ x: Int, _ y: Int) -> Bool {
 func foward() {
     // 범위가 넘어갈경우 무시해야
     if isValidRange(x + dxs[dir], y + dys[dir]) {
+        points += table[x][y]
         x += dxs[dir]
         y += dys[dir]
-        points += table[x][y]
     }
 }
 
-
-points += table[x][y]
 for command in commands {
     switch command {
         case "L":
@@ -55,4 +53,5 @@ for command in commands {
     }
 }
 
+points += table[x][y]
 print(points)
