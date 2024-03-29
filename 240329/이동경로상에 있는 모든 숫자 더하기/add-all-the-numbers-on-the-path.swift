@@ -42,8 +42,6 @@ func foward() {
     }
 }
 
-
-// points += table[x][y]
 for command in commands {
     switch command {
         case "L":
@@ -55,4 +53,5 @@ for command in commands {
     }
 }
 
+points += table[(n - 1) / 2][(n - 1) / 2]
 print(points)
