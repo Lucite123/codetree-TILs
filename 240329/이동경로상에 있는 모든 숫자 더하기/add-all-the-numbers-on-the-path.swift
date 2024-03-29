@@ -18,7 +18,7 @@ let dys = [1, 0, -1, 0]
 
 var dir = 3
 var x = (n - 1) / 2
-var y = (n - 1) / 2
+var y = x
 var points = 0
 
 func turnLeft() {
@@ -43,7 +43,7 @@ func foward() {
 }
 
 
-points += table[x][y]
+// points += table[x][y]
 for command in commands {
     switch command {
         case "L":
