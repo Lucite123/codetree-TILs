@@ -30,6 +30,11 @@ var dir = 0
 
 var number = 1
 
+if n == 1 {
+    print(1)
+    exit(0)
+}
+
 while number <= n * n {
 
     while moveNumber >= 0 {
