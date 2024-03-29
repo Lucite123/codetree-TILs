@@ -53,5 +53,8 @@ for command in commands {
     }
 }
 
-points += table[x][y]
+if isValidRange(x, y) {
+    points += table[x][y]
+}
+
 print(points)
