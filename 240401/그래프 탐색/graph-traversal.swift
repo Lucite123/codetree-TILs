@@ -22,8 +22,7 @@ for _ in 0 ..< m {
 }
 
 func dfs(_ vertex: Int) {
-    for i in 0 ..< graph[vertex].count {
-        let currentVertex = graph[vertex][i]
+    for currentVertex in graph[vertex] {
         if visited[currentVertex] == false {
             visited[currentVertex] = true
             dfs(currentVertex)
