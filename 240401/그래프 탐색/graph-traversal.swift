@@ -33,4 +33,5 @@ func dfs(_ vertex: Int) {
 
 dfs(1)
 
-print(visited.filter { $0 == true }.count - 1)
+let result = visited.filter { $0 == true }.count - 1
+print(result < 0 ? 0 : result)
