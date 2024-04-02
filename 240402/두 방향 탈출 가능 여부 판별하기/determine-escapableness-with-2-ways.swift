@@ -8,7 +8,7 @@ var visited = [[Bool]]()
 var map = [[Int]]()
 
 for _ in 0..<n {
-    let row = readLine()!.components(separatedBy: " ").map { Int(String($0))! }
+    let row = readLine()!.trimmingCharacters(in: .whitespaces).components(separatedBy: " ").map { Int(String($0))! }
     let rowVisited = Array(repeating: false, count: row.count)
     map.append(row)
     visited.append(rowVisited)
