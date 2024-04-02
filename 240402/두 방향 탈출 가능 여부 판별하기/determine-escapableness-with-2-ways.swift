@@ -1,6 +1,6 @@
 import Foundation
 
-let input = readLine()!.components(separatedBy: " ").map { Int(String($0))! }
+let input = readLine()!.trimmingCharacters(in: .whitespaces).components(separatedBy: " ").map { Int(String($0))! }
 let n = input[0]
 let m = input[1]
 
