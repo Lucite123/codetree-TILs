@@ -20,10 +20,10 @@ func canGo(_ x: Int, _ y: Int) -> Bool {
 var count = 0
 
 func dfs(_ x: Int, _ y: Int) {
-    let dxs = [0, 1, 0, -1]
-    let dys = [1, 0, -1, 0]
+    let dxs = [0, 0, 1, 0, -1]
+    let dys = [0, 1, 0, -1, 0]
 
-    for i in 0 ..< 4 {
+    for i in 0 ..< 5 {
         let newX = x + dxs[i]
         let newY = y + dys[i]
         // print(newX, newY)
@@ -42,6 +42,10 @@ for i in 0 ..< n {
         if visited[i][j] == false && map[i][j] != 0 {
             count = 0
             dfs(i, j)
+
+            if count == 0 {
+                print(i, j)
+            }
             result.append(count)
         }
     }
