@@ -138,14 +138,22 @@ for _ in 0 ..< k {
     let position = findMaxPosition(visited)
     x = position.0
     y = position.1
-
     if checkBlock(x, y) == false {
         print(x + 1, y + 1)
         exit(0)
     }
 
     queue.push((x, y))
+    // print(visited)
+    // print(x, y)
+    // print(map[x][y])
     visited = Array(repeating: Array(repeating: false, count: n), count: n)
 }
 
+dfs()
+// print(visited)
+// let position = findMaxPosition(visited)
+// x = position.0
+// y = position.1
+// print(map[x][y])
 print(x + 1, y + 1)
