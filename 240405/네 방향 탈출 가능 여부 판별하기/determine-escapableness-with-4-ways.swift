@@ -14,35 +14,36 @@ for _ in 0 ..< n {
 var visited = Array(repeating: Array(repeating: false, count: m), count: n)
 
 final class Queue<T> {
-    var head = 0
-    var array: [T?]
-
-    init(_ array: [T?] = [T?]()) {
-        self.array = array
-    }
-
-    var count: Int {
-        return self.array.count - self.head
-    }
-
-    var isEmpty: Bool {
-        return self.count == 0
-    }
-
-    func pop() -> T? {
-        guard head < self.array.count,
-        let element = self.array[head]
-        else { return nil }
-        
-        self.array[head] = nil
-        head += 1
-        return element
-    }
-
-    func push(_ element: T) {
-        self.array.append(element)
-    }
+	var head = 0
+	var array: [T?]
+	
+	var count: Int {
+		return self.array.count - self.head
+	}
+	
+	var isEmpty: Bool {
+		return self.count == 0
+	}
+	
+	init(_ array: [T?] = [T?]()) {
+		self.array = array
+	}
+	
+	func push(_ element: T) {
+		self.array.append(element)
+	}
+	
+	func pop() -> T? {
+		guard head < self.array.count,
+			  let element = self.array[head]
+		else { return nil }
+		self.array[head] = nil
+		head += 1
+		
+		return element
+	}
 }
+
 
 func isValidRange(_ x: Int, _ y: Int) -> Bool {
     return (x >= 0 && x <= n - 1) && (y >= 0 && y <= m - 1)
