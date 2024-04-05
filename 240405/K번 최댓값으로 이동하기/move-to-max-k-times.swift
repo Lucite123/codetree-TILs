@@ -104,8 +104,8 @@ func dfs() {
 
 func findMaxPosition(_ visited: [[Bool]]) -> (Int, Int) {
     var maxValue = 0
-    var x = 0
-    var y = 0
+    var x = -1
+    var y = -1
 
     for i in 0 ..< visited.count {
         for j in 0 ..< visited.count {
@@ -136,24 +136,26 @@ for _ in 0 ..< k {
     
     dfs()
     let position = findMaxPosition(visited)
+ 
+
+    if position.0 < 0 || position.1 < 0 {
+        print(x + 1, y + 1)
+        exit(0)
+    }
+
     x = position.0
     y = position.1
+
     if checkBlock(x, y) == false {
         print(x + 1, y + 1)
         exit(0)
     }
 
     queue.push((x, y))
-    // print(visited)
-    // print(x, y)
-    // print(map[x][y])
+    
     visited = Array(repeating: Array(repeating: false, count: n), count: n)
 }
 
 dfs()
-// print(visited)
-// let position = findMaxPosition(visited)
-// x = position.0
-// y = position.1
-// print(map[x][y])
+print(visited)
 print(x + 1, y + 1)
