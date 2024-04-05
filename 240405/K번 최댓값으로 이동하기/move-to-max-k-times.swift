@@ -156,6 +156,4 @@ for _ in 0 ..< k {
     visited = Array(repeating: Array(repeating: false, count: n), count: n)
 }
 
-dfs()
-print(visited)
 print(x + 1, y + 1)
