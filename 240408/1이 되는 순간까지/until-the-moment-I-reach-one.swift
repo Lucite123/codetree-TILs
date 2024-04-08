@@ -14,8 +14,6 @@ func recursive(_ n: Int) -> Int {
     } else {
         return recursive(n / 3) + 1
     }
-
-    count += 1
 }
 
 print(recursive(n))
