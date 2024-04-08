@@ -2,23 +2,20 @@ import Foundation
 
 let n = Int(readLine()!)!
 
-var count = 0
-
-func recursive(_ n: Int) {
+func recursive(_ n: Int) -> Int {
     if n == 1 {
-        return
+        return 0
     }
 
     let remainder = (n % 2 == 0)
 
     if remainder {
-        recursive(n / 2)
+        return recursive(n / 2) + 1
     } else {
-        recursive(n / 3)
+        return recursive(n / 3) + 1
     }
 
     count += 1
 }
 
-recursive(n)
-print(count)
+print(recursive(n))
