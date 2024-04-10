@@ -4,68 +4,16 @@ let count = Int(readLine()!)!
 let numbers = readLine()!.trimmingCharacters(in: .whitespaces).components(separatedBy: " ").map { Int(String($0))! }
 
 
-func isPrimeNumber(_ n: Int) -> Bool {
-    if n < 2 {
-        return false
-    }
-
-    for i in 2 ..< n {
-        if n % i == 0 {
-            return false
-        }
-    }
-
-    return true
-}
-
-func factorization(_ n: Int) -> [Int: Int] {
-    let primeNumbers = [2, 3, 5, 7]
-    var remainValue = n
-    var factorizationTable = [Int: Int]()
-    var primeNumberIndex = 0
-    var currentPrimeNumber = primeNumbers[primeNumberIndex]
-
-    if n == 1 {
-        return [1: 1]
-    }
-
-    while isPrimeNumber(remainValue) == false {
-        
-        if (remainValue % currentPrimeNumber == 0) == false {
-            primeNumberIndex += 1
-            currentPrimeNumber = primeNumbers[primeNumberIndex]
-            continue
-        }
-
-        remainValue = remainValue / currentPrimeNumber
-        factorizationTable[currentPrimeNumber, default: 0] += 1
-    }
-
-    factorizationTable[remainValue, default: 0] += 1
-
-    return factorizationTable
-}
-
-
 func getMinTimesNumber(_ lhs: Int, _ rhs: Int) -> Int {
-    let lhsPrimeNumberTable = factorization(lhs)
-    let rhsPrimeNumberTable = factorization(rhs)
+    var gcd = 1
 
-    let newPrimeNumberTable = lhsPrimeNumberTable.merging(rhsPrimeNumberTable) { lhsValue, rhsValue in
-        if lhsValue >= rhsValue {
-            return lhsValue
+    for i in 1 ... min(lhs, rhs) {
+        if lhs % i == 0 && rhs % i == 0 {
+            gcd = i
         }
-
-        return rhsValue
     }
 
-    var minTimesNumber = 1
-
-    for (primeNumber, times) in newPrimeNumberTable {
-        minTimesNumber *= Int(pow(Float(primeNumber), Float(times)))
-    }
-
-    return minTimesNumber
+    return lhs * rhs / gcd
 }
 
 
