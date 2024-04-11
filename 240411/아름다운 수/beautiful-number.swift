@@ -1,7 +1,6 @@
 import Foundation
 
 let digit = Int(readLine()!)!
-// let digit = 6
 
 // 동일한 숫자에 대해 연달아 같은 숫자의 묶음이 나오는 것
 
@@ -28,17 +27,7 @@ func check() -> Bool {
 
         if continuousNumber != currentNumber {
             let count = numberTable[continuousNumber, default: 0]
-            // print(numberTable)
-            // print(count)
-            // print(continuousNumber)
-            // print(currentNumber)
-            // print("outer")
             if count % continuousNumber != 0 {
-                // print(count)
-                // print(continuousNumber)
-                // print(currentNumber)
-                // print(numbers)
-                // print("false", "1")  
                 return false
             }
             continuousNumber = currentNumber
@@ -51,16 +40,9 @@ func check() -> Bool {
 
     let count = numberTable[continuousNumber, default: 0]
     if count % continuousNumber != 0 {
-        // print(numbers)
-        // if numbers == [1, 1, 1] {
-        //     print(numberTable)
-        // }
-        // print("false", "2")
         return false
     }
 
-    // print(numbers)
-    // print("true")
     return true
 }
 
