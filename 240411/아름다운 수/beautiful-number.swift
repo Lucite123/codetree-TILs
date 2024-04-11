@@ -8,39 +8,19 @@ var numbers = [Int]()
 var count = 0
 
 func check() -> Bool {
-    var numberTable = [Int: Int]()
+    var index = 0
 
-    if digit == 1 {
-        if numbers[0] == 1 {
-         
-            return true
+    while index < digit {
+        if index + numbers[index] - 1 >= digit {
+            return false
         }
 
-        return false
-    }
-
-    var continuousNumber = numbers[0]
-    numberTable[continuousNumber, default: 0] += 1
-
-    for index in 1 ..< numbers.count {
-        let currentNumber = numbers[index]
-
-        if continuousNumber != currentNumber {
-            let count = numberTable[continuousNumber, default: 0]
-            if count % continuousNumber != 0 {
+        for innerIndex in index ..< index + numbers[index] {
+            if numbers[index] != numbers[innerIndex] {
                 return false
             }
-            continuousNumber = currentNumber
-            numberTable = [Int: Int]()
-            numberTable[continuousNumber, default: 0 ] += 1
-        } else {
-            numberTable[continuousNumber, default: 0] += 1
         }
-    }
-
-    let count = numberTable[continuousNumber, default: 0]
-    if count % continuousNumber != 0 {
-        return false
+        index += numbers[index]
     }
 
     return true
