@@ -17,14 +17,11 @@ func choice(_ n: Int) {
         return
     }
 
-
     for pickedNumber in 1 ... k {
         result.append(pickedNumber)
         choice(n + 1)
         result.removeLast()
     }
-
-    return
 }
 
 choice(0)
