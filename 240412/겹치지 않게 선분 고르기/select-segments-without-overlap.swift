@@ -52,10 +52,6 @@ func updateMaxCount(_ choiceLines: [Line]) {
     }
 
     if maxCount < count {
-        if count == 3 {
-            print(sortedChoiceLines)
-        }
-        
         maxCount = count
     }
 }
