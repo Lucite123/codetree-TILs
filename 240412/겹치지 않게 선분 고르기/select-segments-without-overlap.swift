@@ -44,14 +44,20 @@ func updateMaxCount(_ choiceLines: [Line]) {
         let nextLine = sortedChoiceLines[nextIndex]
 
         if currentLine.x2 < nextLine.x1 {
-            currentIndex += 1
+            currentIndex = nextIndex
             count += 1
         }
 
         nextIndex += 1
     }
 
-    maxCount = max(maxCount, count)
+    if maxCount < count {
+        if count == 3 {
+            print(sortedChoiceLines)
+        }
+        
+        maxCount = count
+    }
 }
 
 var choiceLines = [Line]()
@@ -72,4 +78,6 @@ func findPermutation(_ n: Int) {
 
 
 findPermutation(0)
+
+// updateMaxCount([Line(x1: 268, x2: 378), Line(x1: 294, x2: 599), Line(x1: 451, x2: 962), Line(x1: 819, x2: 946)])
 print(maxCount)
