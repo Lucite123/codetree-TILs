@@ -15,7 +15,7 @@ struct Line: Hashable {
 
 
 func initialMap(_ lines: [Line]) -> [[Int]] {
-	var map = Array(repeating: Array(repeating: -1, count: n), count: m + 1)
+	var map = Array(repeating: Array(repeating: -1, count: n), count: 15 + 1)
 	for (index, line) in lines.enumerated() {
 		map[line.b][line.a] = index + 1
 		map[line.b][line.a + 1] = index + 1
@@ -65,7 +65,7 @@ func ladderGame(_ map: [[Int]]) -> [Int: Int] {
 	for person in 0 ..< n {
 		var position = (0, person)
 		
-		while position.0 <= m {
+		while position.0 <= 15 {
 			if map[position.0][position.1] == -1 {
 				position.0 += 1
 				continue
