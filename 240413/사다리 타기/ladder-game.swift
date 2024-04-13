@@ -9,7 +9,6 @@ struct Line: Hashable, Comparable {
 	let a: Int
 	let b: Int
 
-    // TODO: 정렬순서 확인
     static func < (lhs: Line, rhs: Line) -> Bool {
         if lhs.b > rhs.b {
             return true
@@ -35,7 +34,7 @@ func initialResult(_ lines: [Line]) -> [Int] {
     }
 
     for line in sortedLines {
-        var temp = persons[line.a]
+        let temp = persons[line.a]
         persons[line.a] = persons[line.a + 1]
         persons[line.a + 1] = temp
     }
@@ -75,21 +74,18 @@ var minCount = lines.count
 
 func findCombination(_ cnt: Int) {
     if cnt == m {
+        if isPossible() {
+            minCount = min(minCount, selectedLines.count)
+        }
         return 
     }
 
     selectedLines.append(lines[cnt])
     findCombination(cnt + 1)
-    if isPossible() {
-        minCount = min(minCount, selectedLines.count)
-    }
     selectedLines.removeLast()
 
     
     findCombination(cnt + 1)
-    if isPossible() {
-        minCount = min(minCount, selectedLines.count)
-    }
 }
 
 
