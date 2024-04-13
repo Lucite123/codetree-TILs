@@ -25,15 +25,16 @@ for _ in 0 ..< m {
     lines.append(Line(a: line[0] - 1, b: line[1] - 1))
 }
 
+
 func initialResult(_ lines: [Line]) -> [Int] {
-    let sortedLines = lines.sorted()
+
     var persons = [Int]()
 
     for person in 0 ..< n {
         persons.append(person)
     }
 
-    for line in sortedLines {
+    for line in lines {
         let temp = persons[line.a]
         persons[line.a] = persons[line.a + 1]
         persons[line.a + 1] = temp
@@ -41,21 +42,19 @@ func initialResult(_ lines: [Line]) -> [Int] {
 
     return persons
 }
-
+lines = lines.sorted()
 let pivot = initialResult(lines)
 
 var selectedLines = [Line]()
 
 func isPossible() -> Bool {
-
-    let sortedSelectedLines = selectedLines.sorted()
     var persons = [Int]()
 
     for person in 0..<n {
         persons.append(person)
     }
 
-    for line in sortedSelectedLines {
+    for line in selectedLines {
         var temp = persons[line.a]
         persons[line.a] = persons[line.a + 1]
         persons[line.a + 1] = temp
@@ -87,6 +86,7 @@ func findCombination(_ cnt: Int) {
     
     findCombination(cnt + 1)
 }
+
 
 
 
