@@ -75,7 +75,7 @@ func isPossible(_ x1: Int, _ y1: Int, _ x2: Int, _ y2: Int) -> Bool {
 
     // intersect에 대해서 조금 더 생각해보기
 
-    if y1 + m - 1 >= x2 || x1 <= y2 + m - 1  {
+    if y1 + m - 1 >= y2 || y1 >= y2 + m - 1  {
         return false
     }
 
