@@ -15,8 +15,4 @@ while sum > 10 {
     sum /= 10
 }
 
-if sum == 1 {
-    count += 1
-}
-
 print(count)
