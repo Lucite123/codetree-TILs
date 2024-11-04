@@ -9,7 +9,12 @@ func getResult(_ a: Int, _ b: Int) -> (Int, Int) {
     let minValue = min(a, b)
     let maxValue = max(a, b)
 
-    return (minValue + 10, maxValue * 2)
+
+    if minValue == a {
+        return (minValue + 10, maxValue * 2)
+    }
+
+    return (maxValue * 2, minValue + 10)
 }
 
 let result = getResult(a, b)
