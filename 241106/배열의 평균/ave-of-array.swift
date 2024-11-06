@@ -13,7 +13,7 @@ for _ in 0 ..< n {
 for number in numbers {
     let sum = number.reduce(0, +)
     let average: Double = sum / Double(number.count)
-    print(average, terminator: " ")
+    print(String(format: "%.1f", average), terminator: " ")
 }
 
 print()
@@ -24,7 +24,7 @@ for index in 0 ..< 4 {
     let down = numbers[1][index]
 
     let average = (up + down) / 2.0
-    print(average, terminator: " ")
+    print(String(format: "%.1f", average), terminator: " ")
 }
 
 /// 전체 평균
@@ -36,4 +36,4 @@ for number in numbers {
     total += number.reduce(0, + )
 }
 
-print(Double(total / 8))
+print(String(format: "%.1f",Double(total / 8)))
