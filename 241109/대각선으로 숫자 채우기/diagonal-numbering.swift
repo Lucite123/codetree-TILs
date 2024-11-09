@@ -23,8 +23,10 @@ for i in 0 ... n + m - 1 {
     } else {
         for k in temp ..< n {
             let outerIndex = k
-            let innerIndex = i - k
-
+            let innerIndex = i - k 
+            if innerIndex - 1 < 0 {
+                continue
+            }
             numbers[outerIndex][innerIndex - 1] = current
             current += 1 
         }
